@@ -25,21 +25,22 @@
 | ファイル名 | 説明 |
 | ---- | ---- |
 | azure-pipelines.yml | Azure DevOpsのパイプライン用YAML | 
-| key.auth | Salesforceのログイン用URLを記述するファイル |
+| key.auth | Salesforceのログイン用URLを記述するファイル* |
 | package.json | Selenium,Webdriber,resembleJS ,Slack／Boltなどの必要なパッケージを記載 | 
 | runCheck.js | 新旧のフォルダの同名の画像同士を比較して、差分画像データと差分率を出力する | 
 | runCheck.sh | 上記差分チェックのスクリプトをコールする |
 | runGitandPostSlack.sh | テスト結果の画像をZIPに固めてSlackにPost＆画像フォルダをgitコミットプッシュ |
-| runMain.sh | メインのプログラム、共通の設定値はここに記載。 |
+| runMain.sh | メインのプログラム、共通の設定値はここに記載。* |
 | runPostSlack.js  | runCheckの標準出力をSlackに加工して投稿するためのスクリプト |
 | runPostSlackFile.sh  | 引数に指定したファイルをSlackにポストするスクリプト |
-| runTest.js     | テストを呼び出す呼び出しもとのスクリプト |
+| runTest.js     | テストを呼び出す呼び出しもとのスクリプト* |
 | runTest.sh     | テストスクリプトを呼び出すシェル。スクリーンショットを保存先フォルダをクリアする |
 | /lib/testUtil  | スクロール、スクリーンショット、クリックなど。  |
 | /lib/fileUtil  | ファイルの検索、ディレクトリの検索など  |
 | /lib/slackUtil | Slackへのテキスト、画像のポスト  |
 | /lib/imageUtil | 画像の比較。  |
 
+*編集対象となるファイル
 
 ***  
 ## 構成（package.json）
