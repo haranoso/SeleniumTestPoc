@@ -1,4 +1,4 @@
-# Azure DevOpsのpipeline上でSeleniumを使ったUITestコードを実行するための手順
+# Github Actionsのpipeline上でSeleniumを使ったUITestコードを実行するための手順
   
 ***
 自分の環境で試す際には、絶対にPublicにしないこと！！！
