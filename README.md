@@ -3,7 +3,22 @@
 ***
 自分の環境で試す際には、絶対にPublicにしないこと！！！
 ***
-
+##  テストパッケージについて
+Selenium,webdriverを利用しJavascriptベースでテストを記載し利用するテストパッケージ。  
+テストロジック中で必要に応じてスクリーンショットを撮影し、過去のスクリーンショットと比較することで画面表示のデグレードを検出する。   
+また画面操作ができなかった場合もテストにてエラーが発生し処理が中断されるため、画面の動作が予期せず変わった場合についても検出可能となる。 
+***
+## 目次
+1. 必要環境
+1. 構成  
+   1. ベース
+   1. package.json
+1. Slackの準備
+1. bitBucketの準備
+1. Azure側の準備
+1. 実行準備
+1. pipelineの実行
+1. テスト実装方針
 ***
 ## 必要環境 
 
@@ -21,29 +36,29 @@
 - safari(PC)※ドライバーにバグあり
 
 ***
-## 構成 （ベース） 
+## 構成
+### ベース 
 | ファイル名 | 説明 |
 | ---- | ---- |
 | azure-pipelines.yml | Azure DevOpsのパイプライン用YAML | 
-| key.auth | Salesforceのログイン用URLを記述するファイル* |
+| key.auth | Salesforceのログイン用URLを記述するファイル |
 | package.json | Selenium,Webdriber,resembleJS ,Slack／Boltなどの必要なパッケージを記載 | 
 | runCheck.js | 新旧のフォルダの同名の画像同士を比較して、差分画像データと差分率を出力する | 
 | runCheck.sh | 上記差分チェックのスクリプトをコールする |
 | runGitandPostSlack.sh | テスト結果の画像をZIPに固めてSlackにPost＆画像フォルダをgitコミットプッシュ |
-| runMain.sh | メインのプログラム、共通の設定値はここに記載。* |
+| runMain.sh | メインのプログラム、共通の設定値はここに記載。 |
 | runPostSlack.js  | runCheckの標準出力をSlackに加工して投稿するためのスクリプト |
 | runPostSlackFile.sh  | 引数に指定したファイルをSlackにポストするスクリプト |
-| runTest.js     | テストを呼び出す呼び出しもとのスクリプト* |
+| runTest.js     | テストを呼び出す呼び出しもとのスクリプト |
 | runTest.sh     | テストスクリプトを呼び出すシェル。スクリーンショットを保存先フォルダをクリアする |
 | /lib/testUtil  | スクロール、スクリーンショット、クリックなど。  |
 | /lib/fileUtil  | ファイルの検索、ディレクトリの検索など  |
 | /lib/slackUtil | Slackへのテキスト、画像のポスト  |
 | /lib/imageUtil | 画像の比較。  |
-
-*編集対象となるファイル
+| /lib/LineReader | ファイルから１行ずつ読み込む  |
 
 ***  
-## 構成（package.json）
+## package.json
 | ファイル名 | 説明 |
 | ---- | ---- |
 | @slack/bolt | Slcak投稿用のパッケージ | 
@@ -84,22 +99,8 @@
   
 
 ***
-## 3) Azure側の準備  
+## 3) Github Actionsの準備  
   
-1. Azure Dev Ops　のアカウントを用意  
-1. 「Pipelines」を選択  
-1. 「New Pipline」
-1. 「Bitbucket Cloud」を選択  
-1. 「Repositry」を選択  
-1. （既存の場合）「Existing Azure piplines YAML file」を選択、Branch、Pathから「azure-pipelines.yml」を選択して「Continue」→「Save」  
-1. （新規作成の場合）「Node.js」を選択  
-1. （新規作成の場合）YAMLの「trigger:」を以下のように編集して「Save and Run」あるいは「Save」を「∨」から選んで保存*2 
-  - before  
-  trigger:  
-    　  - main  
-     
-  - after  
-  trigger : none  
    
   
 ***
@@ -127,9 +128,26 @@
   
 1. 3)で作成したpipelineを確認。エラーが出ていなければOK
 
-## 5)Pipelineの実行
+## 5) Pipelineの実行
 
 1. 3)で作成したpipelineを選択して開く  
 1. 右上から「Run pipeline」を押す。
 1. 「Branch/tag」で4)(2）で作成したBranchを選択
 1. 「Run」を押す
+
+
+
+## 6) テスト実装方針
+### (1) runTest.js内にテストロジックを記載する方針　　
+  個別のテストを記載する場合にはフォルダを切って、その中でテストロジックを記載することを推奨する。  
+  runTest.js以外のファイルについてはできる限り編集しないこと。＊runMain.shの設定値は除く。  
+### (2) test.js内にテストロジックを記載する方針　　
+　　テストメソッドについては以下のロジックを記載すること
+   1. 個別のテストメソッド内ではwebDriverを作成する。
+   1. 画面の操作を記載する。
+   1. 必要に応じてフレームワークによる値チェックなども行う。
+   1. スクリーンショットを撮影する。
+   1. スクリーンショットのファイル名については、画像の比較に利用するため実施ごとにファイル名が変わらないように疾実装する。
+
+
+
