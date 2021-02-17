@@ -11,6 +11,7 @@ node runCheck $TESTRESULT $DIFF > $CHECKRESULT
 
 export DEBUG='true'
 
+cat $CHECKRESULT
 node runPostSlack $CHECKRESULT
 
 zip -r result.zip $DIFF
