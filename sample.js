@@ -72,11 +72,15 @@ module.exports = async function (browser,path){
                 await elmlast.click();
                 await u.takeScr(scrDir,name+'-006.jpg');
             }
-        
+            console.log(name+ ' done');
+        }
+        catch(err){
+            u.log(err);
+            s.postText(err.stack);
+            console.log(name+ ' fault');
         }
         finally {
             await driver.quit();
-            console.log(name+ ' done');
         }
         s.postText('check finish');
     }
