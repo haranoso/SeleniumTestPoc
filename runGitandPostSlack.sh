@@ -7,10 +7,9 @@ node runPostSlackFile TR$DATE.zip
 
 echo "git Operation Start -----"
 git fetch
-git checkout main
 
 git add $TESTRESULT
 git commit -m "$DATE"
-git push origin HEAD:main
+git push origin HEAD
 echo "git Operation End -----"
 
