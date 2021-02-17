@@ -40,8 +40,9 @@ module.exports = async function (browser,path){
     }(browser));
 
     // テストその1
-    async function test(name){
-        const scrDir = path+'/'+browser+'/'+name;
+    async function test(inName){
+        const scrDir = path+'/';
+        const name = browser+'_'+inName;
 
         try {
             await driver.get(config.url);

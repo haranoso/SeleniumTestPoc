@@ -1,4 +1,4 @@
-const FileUtil= require('./lib/FileUtil');
+const FileUtil= require('./lib/fileUtil');
 const ImageUtil= require('./lib/ImageUtil');
 const SlackUtil= require('./lib/SlackUtil');
 

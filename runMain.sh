@@ -4,8 +4,8 @@ set -eu
 export SLACK_TOKEN='<Slack BOT Oauth Token>'
 export SLACK_CHANNEL='<Slack Channel ID>'
 export SLACK_SECRET_KEY='<Signing Secret>'
-export SLACK_POST_IMAGE='true'
-export SLACK_POST_TEXT='true'
+export SLACK_POST_IMAGE='false'
+export SLACK_POST_TEXT='false'
 export DEBUG='true'
 
 export TESTRESULT="./TestResult/"

@@ -11,6 +11,6 @@ git checkout main
 
 git add $TESTRESULT
 git commit -m "$DATE"
-git push origin HEAD:master
+git push origin HEAD:main
 echo "git Operation End -----"
 
