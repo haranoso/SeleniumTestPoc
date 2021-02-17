@@ -41,7 +41,7 @@ module.exports = async function (browser,path){
 
     // テストその1
     async function test(inName){
-        const scrDir = path+'/';
+        const scrDir = path;
         const name = browser+'_'+inName;
 
         try {
