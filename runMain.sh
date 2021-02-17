@@ -20,7 +20,7 @@ export DATE=`date "+%Y%m%d_%H%M%S"`
 
 # SETUP SFDX
 echo SETUP SFDX
-sfdx config:set defaultusername=`sfdx force:auth:sfdxurl:store -f ./key.auth |cut -d ' ' -f3`
+# sfdx config:set defaultusername=`sfdx force:auth:sfdxurl:store -f ./key.auth |cut -d ' ' -f3`
 
 # SETUP GIT
 echo SETUP GIT
@@ -28,8 +28,8 @@ git config --global user.email "git account email"
 git config --global user.name "git account name"
 
 # START TEST
-./runTest.sh
-./runGitandPostSlack.sh 
+ ./runTest.sh
+ ./runGitandPostSlack.sh 
 
 # START CHECK
 ./runCheck.sh 

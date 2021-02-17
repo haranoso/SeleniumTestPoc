@@ -29,6 +29,7 @@ Selenium,webdriverを利用しJavascriptベースでテストを記載し利用�
 1. Sfdx Cli  
 1. Salckのアカウント  
 1. Azure DevOps
+1. https://www.python.org/downloads/release/python-391/
   
 ## 現在以下のWebdriverに対応。   
 - chrome  

@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@slack/bolt": "^2.2.3",
+    "canvas": "^2.6.1",
     "chromedriver": "^88.0.0",
     "date-utils": "^1.2.21",
     "expect.js": "^0.3.1",
@@ -16,7 +17,6 @@
     "selenium-webdriver": "^4.0.0-alpha.7",
     "sleep": "^6.3.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "# エラーが出るのでymlで処理する。npm run setup;npm run mypage",
     "setup": "./setup",
