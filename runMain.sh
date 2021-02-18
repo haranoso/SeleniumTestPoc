@@ -1,15 +1,15 @@
 #!/bin/bash
 set -eu
 
-# export SLACK_TOKEN='<Slack BOT Oauth Token>'
-# export SLACK_CHANNEL='<Slack Channel ID>'
-# export SLACK_SECRET_KEY='<Signing Secret>'
-# export SLACK_POST_IMAGE='false'
-# export SLACK_POST_TEXT='false'
-# export DEBUG='true'
-# export GIT_EMAIL=''
-# export GIT_USERNAME=''
-# export SFDX_AUTH_URL=''
+export SLACK_TOKEN=$INPUT_SLACK_TOKEN
+export SLACK_CHANNEL=$INPUT_SLACK_CHANNEL
+export SLACK_SECRET_KEY=$INPUT_SLACK_SECRET_KEY
+export SLACK_POST_IMAGE=$INPUT_SLACK_POST_IMAGE
+export SLACK_POST_TEXT=$INPUT_SLACK_POST_TEXT
+export DEBUG=$INPUT_DEBUG
+export GIT_EMAIL=$INPUT_GIT_EMAIL
+export GIT_USERNAME=$INPUT_GIT_USERNAME
+export SFDX_AUTH_URL=$INPUT_SFDX_AUTH_URL
 
 export TESTRESULT="./TestResult/"
 export CHECKRESULT="./checkResult"
