@@ -75,4 +75,5 @@ jobs:
       npm install sfdx-cli --global 
       npm install
     
+      
     - run: ./runMain.sh
