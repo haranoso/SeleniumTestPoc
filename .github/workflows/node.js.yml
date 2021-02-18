@@ -3,16 +3,53 @@
 
 name: Node.js CI
 
+#export SLACK_TOKEN='<Slack BOT Oauth Token>'
+# export SLACK_CHANNEL='<Slack Channel ID>'
+# export SLACK_SECRET_KEY='<Signing Secret>'
+# export SLACK_POST_IMAGE='false'
+# export SLACK_POST_TEXT='false'
+# export DEBUG='true'
+# git email
+# git uname
 on:
   workflow_dispatch:
      inputs:
-      name:
-        description: 'Person to greet'
-        required: true
-        default: 'haranoso'
-      home:
-        description: 'location'
+      debug:
+        description: 'print debug log'
         required: false
+        default: 'false'
+      slack_post_image:
+        description: ' post file to slack'
+        required: false
+        default: 'false'
+      slack_post_text:
+        description: 'post text to slack'
+        required: false
+        default: 'false'
+      slack_secret_key:
+        description: 'Slack Signing Secret'
+        required: false
+        default: ''
+      slack_token:
+        description: 'Slack BOT Oauth Token'
+        required: false
+        default: ''
+      slack_channel:
+        description: 'Slack Channel'
+        required: false
+        default: ''
+      git_email:
+        description: 'git email'
+        required: false
+        default: ''
+      git_username:
+        description: 'git username'
+        required: false
+        default: ''
+      sfdx_auth_url:
+        description: 'Sfdx Auth URL'
+        required: false
+        default: ''
 jobs:
   build:
 
