@@ -18,18 +18,18 @@ on:
         description: 'post text to slack'
         required: false
         default: 'true'
-      slack_secret_key:
-        description: 'Slack Signing Secret'
-        required: false
-        default: ''
-      slack_token:
-        description: 'Slack BOT Oauth Token'
-        required: false
-        default: ''
-      slack_channel:
-        description: 'Slack Channel'
-        required: false
-        default: ''
+      # slack_secret_key:
+      #   description: 'Slack Signing Secret'
+      #   required: false
+      #   default: ''
+      # slack_token:
+      #   description: 'Slack BOT Oauth Token'
+      #   required: false
+      #   default: ''
+      # slack_channel:
+      #   description: 'Slack Channel'
+      #   required: false
+      #   default: ''
       git_email:
         description: 'git email'
         required: false
@@ -38,14 +38,14 @@ on:
         description: 'git username'
         required: false
         default: ''
-      sfdx_auth_url_key:
-        description: 'Sfdx Auth URL(force://PlatformCLI::<here>@domain.com)'
-        required: false
-        default: ''
-      sfdx_auth_url_domain:
-        description: 'Sfdx Auth URL(force://PlatformCLI::*****@<here>)'
-        required: false
-        default: ''
+      # sfdx_auth_url_key:
+      #   description: 'Sfdx Auth URL(force://PlatformCLI::<here>@domain.com)'
+      #   required: false
+      #   default: ''
+      # sfdx_auth_url_domain:
+      #   description: 'Sfdx Auth URL(force://PlatformCLI::*****@<here>)'
+      #   required: false
+      #   default: ''
 jobs:
   build:
 
