@@ -17,7 +17,7 @@ echo SETUP SFDX
 echo $SFDX_AUTH_URL_KEY@$SFDX_AUTH_URL_DOMAIN 
 echo "force://PlatformCLI::::"$SFDX_AUTH_URL_KEY@$SFDX_AUTH_URL_DOMAIN 
 cat ./key.auth
-# sfdx config:set defaultusername=`sfdx force:auth:sfdxurl:store -f ./key.auth |cut -d ' ' -f3`
+sfdx config:set defaultusername=`sfdx force:auth:sfdxurl:store -f ./key.auth |cut -d ' ' -f3`
 
 # # SETUP GIT
 # echo SETUP GIT
