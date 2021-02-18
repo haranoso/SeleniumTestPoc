@@ -62,18 +62,17 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: echo "SLACK_SECRET_KEY=${{ secrets.SSKEY }}" >> $GITHUB_ENV
-    # - run: |
-      # echo "SLACK_TOKEN=${{ github.event.inputs.slack_token }}" >> $GITHUB_ENV
-      # echo "SLACK_CHANNEL=${{ github.event.inputs.slack_channel }}" >> $GITHUB_ENV
-      # echo "SLACK_POST_IMAGE=${{ github.event.inputs.slack_post_image }}" >> $GITHUB_ENV
-      # echo "SLACK_POST_TEXT=${{ github.event.inputs.slack_post_text }}" >> $GITHUB_ENV
-      # echo "DEBUG=${{ github.event.inputs.debug }}" >> $GITHUB_ENV
-      # echo "GIT_EMAIL=${{ github.event.inputs.git_email }}" >> $GITHUB_ENV
-      # echo "GIT_USERNAME=${{ github.event.inputs.git_username }}" >> $GITHUB_ENV
-      # echo "SFDX_AUTH_URL_KEY=${{ github.event.inputs.sfdx_auth_url_key }}" >> $GITHUB_ENV
-      # echo "SFDX_AUTH_URL_DOMAIN=${{ github.event.inputs.sfdx_auth_url_domain }}" >> $GITHUB_ENV
-      # npm install sfdx-cli --global 
-      # npm install
+    - run: |
+      echo "SLACK_SECRET_KEY=${{ secrets.SSKEY }}" >> $GITHUB_ENV
+      echo "SLACK_TOKEN=${{ secrets.SLACK_BOT_TOKEN }}" >> $GITHUB_ENV
+      echo "SLACK_CHANNEL=${{ secret.SLACK_CHANNEL }}" >> $GITHUB_ENV
+      echo "SLACK_POST_IMAGE=${{ github.event.inputs.slack_post_image }}" >> $GITHUB_ENV
+      echo "SLACK_POST_TEXT=${{ github.event.inputs.slack_post_text }}" >> $GITHUB_ENV
+      echo "DEBUG=${{ github.event.inputs.debug }}" >> $GITHUB_ENV
+      echo "GIT_EMAIL=${{ github.event.inputs.git_email }}" >> $GITHUB_ENV
+      echo "GIT_USERNAME=${{ github.event.inputs.git_username }}" >> $GITHUB_ENV
+      echo "SFDX_AUTH_URL=${{ secrets.SFDX_AUTH_URL }}" >> $GITHUB_ENV
+      npm install sfdx-cli --global 
+      npm install
     
-    # - run: ./runMain.sh
+    - run: ./runMain.sh
