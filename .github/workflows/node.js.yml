@@ -76,6 +76,7 @@ jobs:
     - run: echo "GIT_USERNAME=${{ github.event.inputs.git_username }}" >> $GITHUB_ENV
     - run: echo "SFDX_AUTH_URL=${{ github.event.inputs.sfdx_auth_url }}" >> $GITHUB_ENV
 
+    - run: echo "${{ github.event.inputs.sfdx_auth_url }}"
     - run: npm install sfdx-cli --global 
     - run: npm install
     
