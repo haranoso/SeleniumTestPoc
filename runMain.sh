@@ -1,6 +1,19 @@
 #!/bin/bash
 set -eu
 
+# ローカルで実行する場合はここを有効ににし適切に値を設定する
+# export SLACK_SECRET_KEY='<Signing Secret>'
+# export SLACK_TOKEN='<Bot User OAuth Access Token>'
+# export SLACK_CHANNEL='<Channel ID>'
+
+# export SFDX_AUTH_URL='<Sfdx Auth URL>'
+
+# export $GIT_EMAIL = '<git account email>'
+# export $GIT_USERNAME = '<git username>'
+
+# export SLACK_POST_IMAGE='true'
+# export SLACK_POST_TEXT='true'
+# export DEBUG='true'
 
 export TESTRESULT="./TestResult/"
 export CHECKRESULT="./checkResult"

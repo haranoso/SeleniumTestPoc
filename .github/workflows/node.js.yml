@@ -64,7 +64,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - run: echo "SLACK_TOKEN=${{ secrets.SLACK_BOT_TOKEN }}" >> $GITHUB_ENV
-    - run: echo "SLACK_SECRET_KEY=${{ secrets.SSKEY }}" >> $GITHUB_ENV
+    - run: echo "SLACK_SECRET_KEY=${{ secrets.SLACK_CLIENT_SECRET }}" >> $GITHUB_ENV
     - run: echo "SLACK_CHANNEL=${{ secrets.SLACK_CHANNEL }}" >> $GITHUB_ENV
     - run: echo "SLACK_POST_IMAGE=${{ github.event.inputs.slack_post_image }}" >> $GITHUB_ENV
     - run: echo "SLACK_POST_TEXT=${{ github.event.inputs.slack_post_text }}" >> $GITHUB_ENV
