@@ -17,15 +17,15 @@ on:
       debug:
         description: 'print debug log'
         required: false
-        default: 'false'
+        default: 'true'
       slack_post_image:
         description: ' post file to slack'
         required: false
-        default: 'false'
+        default: 'true'
       slack_post_text:
         description: 'post text to slack'
         required: false
-        default: 'false'
+        default: 'true'
       slack_secret_key:
         description: 'Slack Signing Secret'
         required: false
@@ -66,7 +66,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: echo $INPUT_SLACK_TOKEN 
     # - run: npm install sfdx-cli --global 
     # - run: npm install
+    - run: echo ${{ inputs.slack_secret_key }}
     - run: ./runMain.sh
