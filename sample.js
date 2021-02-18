@@ -45,6 +45,10 @@ module.exports = async function (browser,path){
         const name = browser+'_'+inName;
 
         try {
+            
+            const accounts = u.soql("select id , Name from Account limit 10");
+            u.log(accounts);
+            s.postText(accounts);        
             await driver.get(config.url);
 
             await u.waitForLoadBy(By.name('q'));
