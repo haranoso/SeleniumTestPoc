@@ -38,8 +38,12 @@ on:
         description: 'git username'
         required: false
         default: ''
-      sfdx_auth_url:
-        description: 'Sfdx Auth URL'
+      sfdx_auth_url_key:
+        description: 'Sfdx Auth URL(force://PlatformCLI::<here>@domain.com)'
+        required: false
+        default: ''
+      sfdx_auth_url_domain:
+        description: 'Sfdx Auth URL(force://PlatformCLI::*****@<here>)'
         required: false
         default: ''
 jobs:
@@ -66,9 +70,9 @@ jobs:
     # - run: echo "DEBUG=${{ github.event.inputs.debug }}" >> $GITHUB_ENV
     # - run: echo "GIT_EMAIL=${{ github.event.inputs.git_email }}" >> $GITHUB_ENV
     # - run: echo "GIT_USERNAME=${{ github.event.inputs.git_username }}" >> $GITHUB_ENV
-    - run: echo "SFDX_AUTH_URL='${{ github.event.inputs.sfdx_auth_url }}'" >> $GITHUB_ENV
+    - run: echo "SFDX_AUTH_URL='force://PlatformCLI::${{ github.event.inputs.sfdx_auth_url_key }}@${{ github.event.inputs.sfdx_auth_url_domain }}'" >> $GITHUB_ENV
 
-    - run: echo "${{ github.event.inputs.sfdx_auth_url }}"
+    - run: echo "$SFDX_AUTH_URL"
     # - run: npm install sfdx-cli --global 
     # - run: npm install
     
