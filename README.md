@@ -91,6 +91,7 @@ Selenium,webdriverを利用しJavascriptベースでテストを記載し利用�
 1. 「Bot User OAuth Access Token」をメモ「xoxb-hogehohe」  
 1. Slackのワークスペースに移動　　
 1. ChannelID：URLの「higehige」部分をメモ「https://app.slack.com/client/hogehoge/higehige」  
+1. チャンネルへ作成したアプリを招待する。「チャンネル」→「詳細」→「その他」→「アプリを追加する」で３）で用意したアプリを選択して追加。
 
 ***
 ## 2) bitBucket側の準備  
