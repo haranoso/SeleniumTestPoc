@@ -14,7 +14,7 @@ export DATE=`date "+%Y%m%d_%H%M%S"`
 
 # SETUP SFDX
 echo SETUP SFDX
-echo $SFDX_AUTH_URL > ./key.auth
+echo "forc://PlatformCLI::"$SFDX_AUTH_URL_KEY@$SFDX_AUTH_URL_DOMAIN > ./key.auth
 sfdx config:set defaultusername=`sfdx for/ce:auth:sfdxurl:store -f ./key.auth |cut -d ' ' -f3`
 
 # SETUP GIT
