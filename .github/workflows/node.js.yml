@@ -68,5 +68,15 @@ jobs:
         node-version: ${{ matrix.node-version }}
     # - run: npm install sfdx-cli --global 
     # - run: npm install
-    - run: echo ${{ github.event.inputs.slack_secret_key }}
+    - run: echo 
+    - run: export SLACK_TOKEN=${{ github.event.inputs.slack_token }}
+    - run: export SLACK_CHANNEL=${{ github.event.inputs.slack_channel }}
+    - run: export SLACK_SECRET_KEY=${{ github.event.inputs.slack_secret_key }}
+    - run: export SLACK_POST_IMAGE=${{ github.event.inputs.slack_post_image }}
+    - run: export SLACK_POST_TEXT=${{ github.event.inputs.slack_post_text }}
+    - run: export DEBUG=${{ github.event.inputs.debug }}
+    - run: export GIT_EMAIL=${{ github.event.inputs.git_email }}
+    - run: export GIT_USERNAME=${{ github.event.inputs.git_username }}
+    - run: export SFDX_AUTH_URL=${{ github.event.inputs.sfdx_auth_url }}
+    
     - run: ./runMain.sh

@@ -1,16 +1,8 @@
 #!/bin/bash
 set -eu
 
-echo ${{ github.event.inputs.slack_secret_key }}
-# export SLACK_TOKEN=$INPUT_SLACK_TOKEN
-# export SLACK_CHANNEL=$INPUT_SLACK_CHANNEL
-# export SLACK_SECRET_KEY=$INPUT_SLACK_SECRET_KEY
-# export SLACK_POST_IMAGE=$INPUT_SLACK_POST_IMAGE
-# export SLACK_POST_TEXT=$INPUT_SLACK_POST_TEXT
-# export DEBUG=$INPUT_DEBUG
-# export GIT_EMAIL=$INPUT_GIT_EMAIL
-# export GIT_USERNAME=$INPUT_GIT_USERNAME
-# export SFDX_AUTH_URL=$INPUT_SFDX_AUTH_URL
+echo $SFDX_AUTH_URL
+
 
 # export TESTRESULT="./TestResult/"
 # export CHECKRESULT="./checkResult"
