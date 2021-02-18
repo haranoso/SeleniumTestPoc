@@ -68,5 +68,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
     # - run: npm install sfdx-cli --global 
     # - run: npm install
-    - run: echo ${{ inputs.slack_secret_key }}
+    - run: echo ${{ github.event.inputs.slack_secret_key }}
     - run: ./runMain.sh

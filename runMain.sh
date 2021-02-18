@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-echo ${{ inputs.slack_secret_key }}
+echo ${{ github.event.inputs.slack_secret_key }}
 # export SLACK_TOKEN=$INPUT_SLACK_TOKEN
 # export SLACK_CHANNEL=$INPUT_SLACK_CHANNEL
 # export SLACK_SECRET_KEY=$INPUT_SLACK_SECRET_KEY
