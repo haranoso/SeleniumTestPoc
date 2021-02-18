@@ -65,7 +65,7 @@ jobs:
     - run: |
       echo "SLACK_SECRET_KEY=${{ secrets.SSKEY }}" >> $GITHUB_ENV
       echo "SLACK_TOKEN=${{ secrets.SLACK_BOT_TOKEN }}" >> $GITHUB_ENV
-      echo "SLACK_CHANNEL=${{ secret.SLACK_CHANNEL }}" >> $GITHUB_ENV
+      echo "SLACK_CHANNEL=${{ secrets.SLACK_CHANNEL }}" >> $GITHUB_ENV
       echo "SLACK_POST_IMAGE=${{ github.event.inputs.slack_post_image }}" >> $GITHUB_ENV
       echo "SLACK_POST_TEXT=${{ github.event.inputs.slack_post_text }}" >> $GITHUB_ENV
       echo "DEBUG=${{ github.event.inputs.debug }}" >> $GITHUB_ENV
@@ -75,5 +75,5 @@ jobs:
       npm install sfdx-cli --global 
       npm install
     
-      
+
     - run: ./runMain.sh
