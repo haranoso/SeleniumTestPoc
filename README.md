@@ -92,7 +92,7 @@ Nodejsは　v12 , v14　で動作確認。
 1. 「Bot User OAuth Access Token」をメモ「xoxb-hogehohe」  
 1. Slackのワークスペースに移動　　
 1. ChannelID：URLの「higehige」部分をメモ「https://app.slack.com/client/hogehoge/higehige」  
-1. チャンネルへ作成したアプリを招待する。「チャンネル」→「詳細」→「その他」→「アプリを追加する」で３）で用意したアプリを選択して追加。
+1. チャンネルへ作成したアプリを招待する。「チャンネル」→「詳細」→「その他」→「アプリを追加する」で３.で用意したアプリを選択して追加。
 
 ## 2) Salesforce認証キーの取得
   
