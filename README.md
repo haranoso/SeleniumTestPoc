@@ -121,9 +121,7 @@ Nodejsは　v12 , v14　で動作確認。
 1. runMain.shの「SLACK_SECRET_KEY」の値を1)4.でメモした物に書き換え
 1. runMain.shの「SLACK_TOKEN」の値を1)8.でメモした物に書き換え
 1. runMain.shの「SLACK_CHANNEL」の値を1)10.でメモした物に書き換え
-1. runMain.shの「GIT_EMAIL」のEメールアドレスをGithubで利用しているメールアドレスに書き換え
-1. runMain.shの「GIT_USERNAME」のユーザ名を自分の名前に書き換え
-1. Windowsの場合ZIPコマンドで失敗するため、ZIPコマンドとZIPコマンドをSlackに投稿する部分をコメントアウトする
+1. Windowsの場合、ZIPコマンドで失敗するため、ZIPコマンドとZIPコマンドをSlackに投稿する部分をコメントアウトする
   1. runCheck.jsのzipコマンド及び`node runPostSlack`部分をコメントアウト
   1. runGitandPostSlack.jsのzipコマンド及び`node runPostSlack`部分をコメントアウト
 1. ./runMain.shを実行
