@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-# ローカルで実行する場合はここを有効ににし適切に値を設定する
+# ローカルで実行する場合はここを有効にし適切に値を設定する
 # export SLACK_SECRET_KEY='<Signing Secret>'
 # export SLACK_TOKEN='<Bot User OAuth Access Token>'
 # export SLACK_CHANNEL='<Channel ID>'

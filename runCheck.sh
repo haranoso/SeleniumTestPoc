@@ -14,5 +14,5 @@ export DEBUG='true'
 cat $CHECKRESULT
 node runPostSlack $CHECKRESULT
 
-# zip -r result.zip $DIFF
-# node runPostSlackFile result.zip
+zip -r result.zip $DIFF
+node runPostSlackFile result.zip

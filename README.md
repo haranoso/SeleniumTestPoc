@@ -3,7 +3,7 @@
 ***
 自分の環境で試す際には、絶対にPublicにしないこと！！！
 ***
-##  テストパッケージについて
+##  概要
 Selenium,webdriverを利用しJavascriptベースでテストを記載し利用するテストパッケージ。  
 テストロジック中で必要に応じてスクリーンショットを撮影し、過去のスクリーンショットと比較することで画面表示の変化を検出する。   
 また画面操作ができなかった場合もエラーが発生し処理が中断されるため、画面の動作が予期せず変わった場合についても検出可能となる。 
@@ -102,7 +102,7 @@ Nodejsは　v12 , v14　で動作確認。
 
 1. 新規のRepositryを用意
 1. 本Repositryのソースをコピーして、上記のリポジトリにPush  
-1. 公開したくないキー情報などを登録する。「Settin」→「Secret」→「New repositry secret」
+1. 公開したくないキー情報などを登録する。「Settings」→「Secret」→「New repositry secret」を押下する
    1. 「SFDX_AUTH_URL」： 2)3.でメモした物を保存
    1. 「SLACK_SIGNING_SECRET」： 1)4.でメモした物保を存
    1. 「SLACK_BOT_TOKEN」： 1)8.でメモした物を保存
@@ -120,8 +120,9 @@ Nodejsは　v12 , v14　で動作確認。
 1. runMain.shの「SLACK_CHANNEL」の値を1)10.でメモした物に書き換え
 1. runMain.shの「GIT_EMAIL」のEメールアドレスをGithubで利用しているメールアドレスに書き換え
 1. runMain.shの「GIT_USERNAME」のユーザ名を自分の名前に書き換え
-1. 編集し保存したらcommit,branchをPushする
 1. Windowsの場合ZIPコマンドで失敗するため、ZIPコマンドとZIPコマンドをSlackに投稿する部分をコメントアウトする
+  1. runCheck.jsのzipコマンド及び`node runPostSlack`部分をコメントアウト
+  1. runGitandPostSlack.jsのzipコマンド及び`node runPostSlack`部分をコメントアウト
 1. ./runMain.shを実行
 
 ### (2)【Github　Actionsから実行の場合】 Github上で設定を編集  
