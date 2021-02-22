@@ -75,7 +75,6 @@ Nodejsは　v12 , v14　で動作確認。
 | resemblejs | ２つの画像を比較して差分画像を生成する | 
 | selenium-webdriver | Selenium本体 | 
 | sleep | Sleep処理を入れるためのパッケージ | 
-  　
   
 ***
 ## 1) Slackの準備  
