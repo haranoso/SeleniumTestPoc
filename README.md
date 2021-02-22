@@ -1,12 +1,12 @@
-# Github ActionsのGithub Actions上でSeleniumを使ったUITestコードを実行するための手順
+# GithubのActions上でSeleniumを使ったUITestコードを実行して画像をSlackに投稿する仕組みを構築して見ました。
   
 ***
 自分の環境で試す際には、絶対にPublicにしないこと！！！
 ***
 ##  テストパッケージについて
 Selenium,webdriverを利用しJavascriptベースでテストを記載し利用するテストパッケージ。  
-テストロジック中で必要に応じてスクリーンショットを撮影し、過去のスクリーンショットと比較することで画面表示のデグレードを検出する。   
-また画面操作ができなかった場合もテストにてエラーが発生し処理が中断されるため、画面の動作が予期せず変わった場合についても検出可能となる。 
+テストロジック中で必要に応じてスクリーンショットを撮影し、過去のスクリーンショットと比較することで画面表示の変化を検出する。   
+また画面操作ができなかった場合もエラーが発生し処理が中断されるため、画面の動作が予期せず変わった場合についても検出可能となる。 
 ***
 ## 目次
 1. 必要環境
@@ -15,22 +15,21 @@ Selenium,webdriverを利用しJavascriptベースでテストを記載し利用�
    1. package.json
 1. Slackの準備
 1. Githubの準備
-1. Azure側の準備
 1. 実行準備
 1. Github Actionsの実行
 1. テスト実装方針
+
 ***
 ## 必要環境 
-
-1. Node.js  
+1. Node.js(Python) 
 1. Visual Studio Code  
 1. Githubのアカウント  
 1. Git / Git bash(Windowsのみ)  
 1. Sfdx Cli  
-1. Salckのアカウント  
-1. https://www.python.org/downloads/release/python-391/
+1. Salckのアカウント、ワークスペース  
 1. エイリアスの使えるメールアドレス（推奨：Gmail）  
   
+Nodejsは　v12 , v14　で動作確認。  
 ## 現在以下のWebdriverに対応。   
 - chrome  
 - firefox  
@@ -52,9 +51,9 @@ Selenium,webdriverを利用しJavascriptベースでテストを記載し利用�
 | runTest.js     | テストを呼び出す呼び出しもとのスクリプト |
 | runTest.sh     | テストスクリプトを呼び出すシェル。スクリーンショットを保存先フォルダをクリアする |
 | /lib/testUtil  | スクロール、スクリーンショット、クリックなど。  |
-| /lib/fileUtil  | ファイルの検索、ディレクトリの検索など  |
-| /lib/slackUtil | Slackへのテキスト、画像のポスト  |
-| /lib/imageUtil | 画像の比較。  |
+| /lib/FileUtil  | ファイルの検索、ディレクトリの検索など  |
+| /lib/SlackUtil | Slackへのテキスト、画像のポスト  |
+| /lib/ImageUtil | 画像の比較。  |
 | /lib/LineReader | ファイルから１行ずつ読み込む  |
 
 ***  
@@ -79,8 +78,8 @@ Selenium,webdriverを利用しJavascriptベースでテストを記載し利用�
 
 1. Slackのワークスペース、アカウントを用意 
 1. https://api.slack.com/apps にアクセスする  
+1. 「Basic Information」から「App Credential」を参照し「Client Secret」をメモ  
 1. 「Create Your Apps」からアプリを作成する  
-1. 「signing Secret」をメモ,Permissonsを押す  
 1. Permissonsを設定する。「Add an OAuth Scope」を押下し以下の権限をセットする。
     1. channel : join  
     1. chat : write  
@@ -121,7 +120,7 @@ Selenium,webdriverを利用しJavascriptベースでテストを記載し利用�
 1. runMain.shの「SLACK_CHANNEL」の値を1)10.でメモした物に書き換え
 1. runMain.shの「GIT_EMAIL」のEメールアドレスをGithubで利用しているメールアドレスに書き換え
 1. runMain.shの「GIT_USERNAME」のユーザ名を自分の名前に書き換え
-1. 編集し保存したらcommit,branchをPushする１
+1. 編集し保存したらcommit,branchをPushする
 1. Windowsの場合ZIPコマンドで失敗するため、ZIPコマンドとZIPコマンドをSlackに投稿する部分をコメントアウトする
 1. ./runMain.shを実行
 
@@ -132,9 +131,6 @@ Selenium,webdriverを利用しJavascriptベースでテストを記載し利用�
 1. 「Run workflow」を押下。
 1. 表示されたダイアログに従って入力
 1. 「Run」ボタンを押下
-
-
-
 
 ## 4) テスト実装方針
 ### (1) runTest.js内にテストロジックを記載する方針　　
