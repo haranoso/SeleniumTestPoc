@@ -8,9 +8,6 @@ set -eu
 
 # export SFDX_AUTH_URL='<Sfdx Auth URL>'
 
-# export $GIT_EMAIL = '<git account email>'
-# export $GIT_USERNAME = '<git username>'
-
 # export SLACK_POST_IMAGE='true'
 # export SLACK_POST_TEXT='true'
 # export DEBUG='true'
@@ -29,11 +26,6 @@ export DATE=`date "+%Y%m%d_%H%M%S"`
 echo SETUP SFDX
 echo $SFDX_AUTH_URL > ./key.auth
 sfdx config:set defaultusername=`sfdx force:auth:sfdxurl:store -f ./key.auth |cut -d ' ' -f3`
-
-# SETUP GIT
-# echo SETUP GIT
-# git config --global user.email $GIT_EMAIL
-# git config --global user.name $GIT_USERNAME
 
 # START TEST
  ./runTest.sh
