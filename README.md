@@ -1,4 +1,4 @@
-# GithubのActions上のMacOSでSeleniumを使ったUITestコードを実行して画像をSlackに投稿する仕組みを構築して見ました。
+# GithubのActions上のMacOSでSeleniumを使ったUITestコードを実行して画像をSlackに投稿する仕組みを構築して見ました。必要に応じてSfdxコマンドも使える。
   
 ***
 自分の環境で試す際には、絶対にPublicにしないこと！！！
