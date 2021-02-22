@@ -7,6 +7,7 @@
 Selenium,webdriverを利用してJavascriptベースでテストコードを記載できる構成です。  
 テストロジック中で必要に応じてスクリーンショットを撮影し、過去のスクリーンショットと比較することで画面表示の変化を検出することを想定してます。   
 また画面操作ができなかった場合もエラーが発生し処理が中断されるため、画面の動作が予期せず変わった場合についても検出可能となるはず。 
+SalesforceのSfdx Cliを利用できるようにしているため、Salesforceにログインして画面の操作や画面に表示されていないデータのチェックなどもできます。
 ***
 ## 目次
 1. 必要環境
@@ -25,6 +26,7 @@ Selenium,webdriverを利用してJavascriptベースでテストコードを記�
 1. Visual Studio Code  
 1. Githubのアカウント  
 1. Git / Git bash(Windowsのみ)  
+1. Salesforceのアカウント（Developer組織またはSandbox)  
 1. Sfdx Cli  
 1. Salckのアカウント、ワークスペース  
 1. エイリアスの使えるメールアドレス（推奨：Gmail）  
@@ -43,14 +45,15 @@ Nodejsは　v12 , v14　で動作確認。
 | .github/workflows/node.js.yaml | Github Actions用YAML | 
 | package.json | Selenium,Webdriber,resembleJS ,Slack／Boltなどの必要なパッケージを記載 | 
 | runCheck.js | 新旧のフォルダの同名の画像同士を比較して、差分画像データと差分率を出力する | 
-| runCheck.sh | 上記差分チェックのスクリプトをコールする |
-| runGitandPostSlack.sh | テスト結果の画像をZIPに固めてSlackにPost＆画像フォルダをgitコミットプッシュ |
-| runMain.sh | メインのプログラム、共通の設定値はここに記載。 |
-| runPostSlack.js  | runCheckの標準出力をSlackに加工して投稿するためのスクリプト |
-| runPostSlackFile.sh  | 引数に指定したファイルをSlackにポストするスクリプト |
+| runCheck.sh | 上記差分チェックのスクリプトをコールする。テスト結果の画像をZIPに固めてSlackにPostする |
+| runGitandPostSlack.sh | テスト結果の画像をZIPに固めてSlackにPost＆画像フォルダをgitコミットプッシュする |
+| sample.js | サンプルテストコード。Salesforceのデータを取得しつつ、Google検索してスクリーンショットをとる。 |
 | runTest.js     | テストを呼び出す呼び出しもとのスクリプト |
 | runTest.sh     | テストスクリプトを呼び出すシェル。スクリーンショットを保存先フォルダをクリアする |
-| /lib/testUtil  | スクロール、スクリーンショット、クリックなど。  |
+| runMain.sh | メインのプログラム。 |
+| runPostSlack.js  | runCheckの標準出力をSlackに加工して投稿するためのスクリプト |
+| runPostSlackFile.sh  | 引数に指定したファイルをSlackにポストするスクリプト |
+| /lib/TestUtil  | スクロール、スクリーンショット、クリックなど。  |
 | /lib/FileUtil  | ファイルの検索、ディレクトリの検索など  |
 | /lib/SlackUtil | Slackへのテキスト、画像のポスト  |
 | /lib/ImageUtil | 画像の比較。  |
