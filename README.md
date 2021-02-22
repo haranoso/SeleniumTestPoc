@@ -24,14 +24,13 @@ MacOS上で動くように今回は作成しています。
 
 ***
 ## 必要環境 
-1. Node.js(Python) 
-1. Visual Studio Code  
-1. Githubのアカウント  
-1. Git / Git bash(Windowsのみ)  
-1. Salesforceのアカウント（Developer組織またはSandbox)  
-1. Sfdx Cli  
-1. Salckのアカウント、ワークスペース  
-1. エイリアスの使えるメールアドレス（推奨：Gmail）  
+1. Node.js(Python) ： ローカル検証用
+1. Visual Studio Code ： ローカル検証用
+1. Githubのアカウント ： Git利用のため
+1. Git / Git bash(Windowsのみ) ： ローカル検証用、ShellScriptも使うのでGit Bashも（WSL2でも行けるかもしれない)
+1. Salesforceのアカウント（Developer組織またはSandbox) ： Salesforce利用しないなら不要。コード中のSfdxコマンドも削除して良い 
+1. Sfdx Cli ：　Salesforce利用しないなら不要。yamlからも削除して良い
+1. Salckのアカウント、ワークスペース  ：Slackを利用しないなら不要。
   
 Nodejsは　v12 , v14　で動作確認。  
 ## 現在以下のWebdriverに対応。   
