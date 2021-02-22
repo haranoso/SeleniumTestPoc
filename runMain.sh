@@ -31,9 +31,9 @@ echo $SFDX_AUTH_URL > ./key.auth
 sfdx config:set defaultusername=`sfdx force:auth:sfdxurl:store -f ./key.auth |cut -d ' ' -f3`
 
 # SETUP GIT
-echo SETUP GIT
-git config --global user.email $GIT_EMAIL
-git config --global user.name $GIT_USERNAME
+# echo SETUP GIT
+# git config --global user.email $GIT_EMAIL
+# git config --global user.name $GIT_USERNAME
 
 # START TEST
  ./runTest.sh
