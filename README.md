@@ -14,8 +14,8 @@ MacOS上で動くように今回は作成しています。
 ## 目次
 1. 必要環境
 1. 構成  
-   1. ベース
-   1. package.json
+   + ベース
+   + package.json
 1. Slackの準備
 1. Githubの準備
 1. 実行準備
