@@ -4,8 +4,8 @@
 自分の環境で試す際には、絶対にPublicにしないこと！！！
 ***
 ##  概要
-Github Actions上でSelenium,webdriverを利用してJavascriptベースでテストコードを記載できる構成です。  
-Slackへの投稿、Salesforceの呼び出しなどもできるようになってます。    
+Github Actions上でSelenium webdriver,Node.js,ResembleJSを利用してJavascriptベースでテストコードを記載できる構成です。  
+Slack Boltを栄養することでSlackへのテキスト、ファイルの投稿、Sfdx Cliを利用してSalesforceの呼び出しなどもできるようになってます。    
 テストロジック中で必要に応じてスクリーンショットを撮影し、過去のスクリーンショットと比較することで画面表示の変化を検出することを想定してます。   
 また画面操作ができなかった場合もエラーが発生し処理が中断されるため、画面の動作が予期せず変わった場合についても検出可能となるはず。   
 SalesforceのSfdx Cliを利用できるようにしているため、Salesforceにログインして画面の操作や画面に表示されていないデータのチェックなどもできます。  
@@ -19,7 +19,9 @@ MacOS上で動くように今回は作成しています。
 1. Slackの準備
 1. Githubの準備
 1. 実行準備
-1. Github Actionsの実行
+1. 実行
+  1. (1)【ローカル実行の場合】 
+  1. (2)【Github　Actionsから実行の場合】  
 1. テスト実装方針
 
 ***
